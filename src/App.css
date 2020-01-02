@@ -1,22 +1,79 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
+.upload-bar {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #dfdada, transparent);
+}
+input[type='file'] {
+  display: none;
+}
+button, label {
+  font-size: .9rem;
+  min-width: 8rem;
+  margin: 0 1rem;
+  padding: .6rem 1.4rem;
+  border-radius: 7px;
+  color: #0d0d62;
+  border: 2px solid #0d0d62;
+  background: #f6f9ff;
+  cursor: pointer;
+  transition: .2s;
+}
+button {
+  color: #0f3d07;
+  border: 2px solid #0a2904;
+}
+button:hover, label:hover {
+  background: #dfdfdf;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.preview-window h4 {
+  margin: 0;
+  line-height: 2rem;
+  font-style: italic;
+  font-family: 'Courier New', Courier, monospace;
+}
+.preview-window {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  box-shadow: 0 0 10px #33333388;
+  border-radius: 7px;
+  height: 320px;
+  width: 320px;
+  margin: 0 auto;
+  padding: 0rem;
+  overflow: hidden;
+}
+.img-preview {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+}
+.preview-window h2 {
+  font-family: 'Courier New', Courier, monospace;
+  font-style: italic;
+}
+.preview-window h2::after {
+  content: '.';
+  animation: loading-dots 1.5s linear infinite;
 }
 
-.App-link {
-  color: #09d3ac;
+@keyframes loading-dots {
+  0%, 25% {
+    text-shadow: .25em 0 0 white, .5em 0 0 white;
+  }
+  33%, 50% {
+    text-shadow: .25em 0 0 black, .5em 0 0 white;
+  }
+  66%, 100% {
+    text-shadow: .25em 0 0 black, .5em 0 0 black;
+  }
 }
